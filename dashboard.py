@@ -328,8 +328,8 @@ show_votes_aggregated = shows_popularity.merge(
 show_votes_aggregated = show_votes_aggregated[show_votes_aggregated["vote_count"] >= 20]
 
 scatter_plot = px.scatter(show_votes_aggregated, hover_data={'name': True}, x = "popularity", y = "vote_average", size = "vote_count")
-scatter_plot['layout'].update(xaxis = dict(title="Popularity",titlefont=dict(size=19)),
-                       yaxis = dict(title = "Vote Average", titlefont = dict(size=19)))
+scatter_plot['layout'].update(xaxis = dict(title="Popularity",tickfont=dict(size=19)),
+                       yaxis = dict(title = "Vote Average", tickfont = dict(size=19)))
 scatter_plot.update_xaxes(autorangeoptions=dict(minallowed=20, maxallowed=1200))
 st.plotly_chart(scatter_plot,use_container_width=True)
 st.caption("_Only including shows with at least 20 vote counts. The size of the dot indicates how many vote counts._")
